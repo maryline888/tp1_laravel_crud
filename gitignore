@@ -1,0 +1,9 @@
+.DS_STORE
+.vscode/
+.env
+.node_modules
+.pdf
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
