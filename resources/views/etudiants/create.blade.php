@@ -13,25 +13,25 @@
                 </div>
                 <div class="card-body">
                     <label for="first_name">Prénom</label>
-                    <input type="text" id="first_name" name="first_name" class="form-control">
+                    <input type="text" id="first_name" name="first_name" class="form-control mt-4">
 
                     <label for="last_name">Nom de famille</label>
-                    <input type="text" id="last_name" name="last_name" class="form-control">
+                    <input type="text" id="last_name" name="last_name" class="form-control mt-4">
 
                     <label for="date_naissance">Date de naissance</label>
-                    <input type="date" id="date_naissance" name="date_naissance" class="form-control">
+                    <input type="date" id="date_naissance" name="date_naissance" class="form-control mt-4">
 
                     <label for="email">Courriel</label>
-                    <input type="email" id="email" name="email" class="form-control">
+                    <input type="email" id="email" name="email" class="form-control mt-4">
 
                     <label for="phone">Téléphone</label>
-                    <input type="phone" id="phone" name="phone" class="form-control">
+                    <input type="phone" id="phone" name="phone" class="form-control mt-4">
 
                     <label for="address">Adresse</label>
-                    <input type="text" id="address" name="address" class="form-control">
+                    <input type="text" id="address" name="address" class="form-control mt-4">
 
                     <label for="ville_id">Ville</label>
-                    <select name="ville_id" id="ville_id" class="form-control">
+                    <select name="ville_id" id="ville_id" class="form-control mt-4">
                         @foreach($villes as $ville)
                         <option value="{{ $ville->id }}">{{ $ville->name }}</option>
                         @endforeach

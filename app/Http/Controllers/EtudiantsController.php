@@ -40,14 +40,31 @@ class EtudiantsController extends Controller
     // info dun student only
     public function show(Etudiants $etudiants)
     {
-
         return view('etudiants.show', ['etudiants' => $etudiants]);
     }
 
     public function edit(Etudiants $etudiants)
     {
-        return view('etudiants.edit', ['etudiants' => $etudiants]);
+        $villes = Villes::all();
+        return view('etudiants.edit', ['etudiants' => $etudiants, 'villes' => $villes]);
     }
+
+    public function update(Request $request, Etudiants $etudiants)
+    {
+
+        $etudiants->update([
+            'last_name' => $request->last_name,
+            'first_name' => $request->first_name,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'date_naissance' => $request->date_naissance,
+            'ville_id' => $request->ville_id
+        ]);
+        $request->session()->flash('message', 'Vos modifications ont été enregistrées avec succès!');
+        return redirect(route('etudiants.show', $etudiants->id));
+    }
+
 
     public function destroy(Etudiants $etudiants)
     {

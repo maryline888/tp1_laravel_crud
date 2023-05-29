@@ -3,8 +3,13 @@
 @section('titleHeader', 'Information personnelles')
 @section('content')
 
-<div>
+@if (session('message'))
+<div class="alert alert-success">
+    {{ session('message') }}
+</div>
+@endif
 
+<div class="">
     <h2>{{ $etudiants->first_name }} {{ $etudiants->last_name }}</h2>
     <p>{{ $etudiants->date_naissance }}</p>
     <p>{{ $etudiants->address }}</p>

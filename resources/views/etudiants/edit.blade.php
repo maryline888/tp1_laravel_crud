@@ -29,7 +29,7 @@
                     <input type="phone" id="phone" name="phone" class="form-control mt-2" value="{{$etudiants->phone}}">
 
                     <label for="address">Adresse</label>
-                    <input type="text" id="address" name="address" class="form-control mt-2" value="$etudiants->address">
+                    <input type="text" id="address" name="address" class="form-control mt-2" value="{{$etudiants->address}}">
 
                     <label for="ville_id">Ville</label>
                     <select name="ville_id" id="ville_id" class="form-control mt-2">
