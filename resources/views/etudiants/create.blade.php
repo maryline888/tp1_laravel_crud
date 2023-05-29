@@ -18,15 +18,18 @@
                     <label for="last_name">Nom de famille</label>
                     <input type="text" id="last_name" name="last_name" class="form-control">
 
-
+                    <label for="date_naissance">Date de naissance</label>
+                    <input type="date" id="date_naissance" name="date_naissance" class="form-control">
 
                     <label for="email">Courriel</label>
                     <input type="email" id="email" name="email" class="form-control">
 
                     <label for="phone">Téléphone</label>
                     <input type="phone" id="phone" name="phone" class="form-control">
+
                     <label for="address">Adresse</label>
                     <input type="text" id="address" name="address" class="form-control">
+
                     <label for="ville_id">Ville</label>
                     <select name="ville_id" id="ville_id" class="form-control">
                         @foreach($villes as $ville)
