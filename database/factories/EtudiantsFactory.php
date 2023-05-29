@@ -28,9 +28,9 @@ class EtudiantsFactory extends Factory
             'last_name' => $this->faker->lastName,
             'email' => $this->faker->unique()->safeEmail,
             'phone' => $this->faker->phoneNumber,
-            'address' => $this->faker->address,
+            'address' => $this->faker->streetAddress,
             'date_naissance' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
-            'ville_id' => \App\Models\Villes::factory(),
+            'ville_id' => \App\Models\Villes::inRandomOrder()->first()->id,
         ];
     }
 }

@@ -16,14 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [EtudiantsController::class, 'index'])->name('etudiants.index');
 Route::get('/index', [EtudiantsController::class, 'index'])->name('etudiants.index');
+Route::get('/etudiant/{etudiants}', [EtudiantsController::class, 'show'])->name('etudiants.show');
 
 Route::get('/etudiant-ajout', [EtudiantsController::class, 'create'])->name('etudiants.create');
 Route::post('/etudiant-ajout', [EtudiantsController::class, 'store']);
 
-Route::get('/etudiant/{etudiants}', [EtudiantsController::class, 'show'])->name('etudiants.show');
 
 Route::get('/etudiant-edit/{etudiants}', [EtudiantsController::class, 'edit'])->name('etudiants.edit');
-Route::put('/etudiant-edit/{etudiants}', [EtudiantsController::class, 'update']); //put est pour ma mise a jour dans la bd 
-
+Route::put('/etudiant-edit/{etudiants}', [EtudiantsController::class, 'update']);
 
 Route::delete('/etudiant/{etudiants}', [EtudiantsController::class, 'destroy'])->name('etudiants.destroy');

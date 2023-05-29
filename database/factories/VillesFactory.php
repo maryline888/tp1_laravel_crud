@@ -15,10 +15,9 @@ class VillesFactory extends Factory
      */
     public function definition()
     {
-        $mesVilles = ['Beloeil', 'Deux-Montagnes', 'Mascouche', 'Terrebonne', 'Montréal', 'Laval', 'Longueuil', 'Brossard', 'Dollard-des-Ormeaux', 'Côte Saint-Luc', 'Pointe-Claire', 'Repontigny', 'St-Hyacinthe', 'St-Hilaire', 'Boucherville']; // ajoutez plus de villes si vous voulez
 
         return [
-            'name' => $this->faker->randomElement($mesVilles),
+            'name' => $this->faker->city
         ];
     }
 }

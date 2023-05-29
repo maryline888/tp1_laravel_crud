@@ -9,10 +9,10 @@
 </div>
 @endif
 
-<div class="">
-    <h2>{{ $etudiants->first_name }} {{ $etudiants->last_name }}</h2>
+<div class="row mt-4 justify-content-center">
+    <h2 class="row mb-4">{{ $etudiants->first_name }} {{ $etudiants->last_name }}</h2>
     <p>{{ $etudiants->date_naissance }}</p>
-    <p>{{ $etudiants->address }}</p>
+    <p>{{ $etudiants->address }} {{ $etudiants->ville->name }}</p>
     <p>{{ $etudiants->email }}</p>
     <p>{{ $etudiants->date_naissance }}</p>
     <p>{{ $etudiants->phone }}</p>
