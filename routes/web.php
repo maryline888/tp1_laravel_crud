@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EtudiantsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index', [EtudiantsController::class, 'index'])->name('etudiants.index');
+Route::get('/etudiant-ajout', [EtudiantsController::class, 'create'])->name('etudiants.create');
