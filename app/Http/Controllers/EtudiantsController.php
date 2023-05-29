@@ -9,7 +9,7 @@ use App\Models\villes;
 
 class EtudiantsController extends Controller
 {
-    public function index()
+    public function index(Etudiants $etudiants)
     {
         $etudiants = Etudiants::all();
         return view('etudiants.index', ['etudiants' => $etudiants]);
@@ -37,10 +37,21 @@ class EtudiantsController extends Controller
         return redirect(route('etudiants.show', $newEtudiant->id));
     }
 
-    public function show()
+    // info dun student only
+    public function show(Etudiants $etudiants)
     {
 
-        $etudiants = Etudiants::all();
-        return view('etudiants.index', ['etudiants' => $etudiants]);
+        return view('etudiants.show', ['etudiants' => $etudiants]);
+    }
+
+    public function edit(Etudiants $etudiants)
+    {
+        return view('etudiants.edit', ['etudiants' => $etudiants]);
+    }
+
+    public function destroy(Etudiants $etudiants)
+    {
+        $etudiants->delete();
+        return redirect(route('etudiants.index'));
     }
 }
