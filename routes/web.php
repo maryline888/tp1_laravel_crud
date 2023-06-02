@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EtudiantsController;
+use App\Http\Controllers\VillesController;
 use Illuminate\Support\Facades\Route;
 
 /*

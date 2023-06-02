@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\etudiants;
-use App\Models\villes;
+
+use App\Models\Etudiants;
+use App\Models\Villes;
 
 class EtudiantsController extends Controller
 {
@@ -13,9 +14,13 @@ class EtudiantsController extends Controller
      */
     public function index(Etudiants $etudiants)
     {
-        $etudiants = Etudiants::all();
+        $etudiants = Etudiants::select()
+            ->paginate(25);
+
         return view('etudiants.index', ['etudiants' => $etudiants]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +29,10 @@ class EtudiantsController extends Controller
      */
     public function create()
     {
+
+
         $villes = Villes::all();
+
         return view('etudiants.create', ['villes' => $villes]);
     }
 
@@ -35,16 +43,27 @@ class EtudiantsController extends Controller
      */
     public function store(Request $request)
     {
-        $newEtudiant = Etudiants::create([
-            'last_name' => $request->last_name,
-            'first_name' => $request->first_name,
-            'address' => $request->address,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'date_naissance' => $request->date_naissance,
-            'ville_id' => $request->ville_id
-
+        $validatedData = $request->validate([
+            'last_name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:etudiants',
+            'phone' => 'required|digits_between:10,15',
+            'date_naissance' => 'required|date',
+            'ville_id' => 'required|exists:villes,id',
         ]);
+
+        $newEtudiant = new Etudiants;
+        $newEtudiant->last_name = $validatedData['last_name'];
+        $newEtudiant->first_name = $validatedData['first_name'];
+        $newEtudiant->address = $validatedData['address'];
+        $newEtudiant->email = $validatedData['email'];
+        $newEtudiant->phone = $validatedData['phone'];
+        $newEtudiant->date_naissance = $validatedData['date_naissance'];
+        $newEtudiant->ville_id = $validatedData['ville_id'];
+        $newEtudiant->save();
+
+        $request->session()->flash('message', 'L\'étudiant a été créé avec succès!');
 
         return redirect(route('etudiants.show', $newEtudiant->id));
     }
